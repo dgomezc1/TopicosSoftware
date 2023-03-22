@@ -12,13 +12,14 @@ use Illuminate\Database\Eloquent\Collection;
 class Product extends Model
 {
     use HasFactory;
-        /**
+
+    /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['name'] - string - contains the product name
      * $this->attributes['price'] - int - contains the product price
-     * $this->comments - Comment[] - contains the associated comments    
-     */
+     * * $this->comments - Comment[] - contains the associated comments
+    */
 
     protected $fillable = ['name','price'];
 
@@ -66,5 +67,6 @@ class Product extends Model
     {
         $this->comments = $comments;
     }
+
 
 }

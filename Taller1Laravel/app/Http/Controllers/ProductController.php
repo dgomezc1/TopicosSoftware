@@ -8,6 +8,13 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    // public static $products = [
+    //     ["id"=>"1", "name"=>"TV", "description"=>"Best TV"],
+    //     ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone"],
+    //     ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast"],
+    //     ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses"]
+    // ];
+
     public function index(): View
     {
         $viewData = [];
@@ -35,18 +42,15 @@ class ProductController extends Controller
         return view('product.create')->with("viewData",$viewData);
     }
 
-    public function save(Request $request): \Illuminate\Http\RedirectResponse
+    public function save(Request $request) : \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             "name" => "required",
             "price" => "required"
         ]);
         Product::create($request->only(["name","price"]));
-
         return back();
+        //here will be the code to call the model and save it to the database
     }
 
-
-
 }
-?>
